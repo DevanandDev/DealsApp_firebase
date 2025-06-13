@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "447295207162",
+    "project_id": "chatso-2cb01",
+    "storage_bucket": "chatso-2cb01.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447295207162:android:bd3f26e6fdfaf57a633b43",
+        "android_client_info": {
+          "package_name": "com.example.chatso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM0iiUpd3NZKtRMw-X7_sWv1mq3vIOooo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
