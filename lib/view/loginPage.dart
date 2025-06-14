@@ -73,14 +73,17 @@ class MyLogin extends StatelessWidget {
                     padding: EdgeInsets.all(width * 0.02),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: [text(text: 'Forgot Password ?')],
+                      children: [GestureDetector(
+                        onTap: () => context.push('/forgotPass'),
+                        child: text(text: 'Forgot Password ?'))],
                     ),
                   ),
                   SizedBox(height: height * 0.01),
                   eButton(
                     presse: () {
                      if (_formKey.currentState!.validate()) {
-                        regController.loginProvider();
+                        regController.loginProvider(context);
+                        context.go('/home');
                      }
                     },
                     text: 'Login',

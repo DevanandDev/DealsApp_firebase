@@ -82,14 +82,7 @@ class MyRegister extends StatelessWidget {
                   acontroller: confirmPassControler,
                   prefix: Icon(Icons.lock_open_sharp),
                   hText: 'confirm password',
-                  validate: (value) {
-                    if (value== null || value.isEmpty) {
-                      return 'please enter your password';
-                    }
-                    if (authController.rPasswordController != confirmPassControler) {
-                      return 'password is not matching';
-                    }
-                  }, 
+                 
                 ),
             
                 SizedBox(height: height * 0.055),

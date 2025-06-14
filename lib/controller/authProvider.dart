@@ -5,8 +5,8 @@ class Authprovider extends ChangeNotifier {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-   TextEditingController rEmailController = TextEditingController();
-   TextEditingController rPasswordController = TextEditingController();
+  TextEditingController rEmailController = TextEditingController();
+  TextEditingController rPasswordController = TextEditingController();
 
   AuthService service = AuthService();
 
@@ -18,25 +18,30 @@ class Authprovider extends ChangeNotifier {
         password: rPasswordController.text.trim(),
       );
     } catch (e) {
-     rethrow;
+      rethrow;
     }
   }
 
-  Future<void> loginProvider() async {
+  Future<void> loginProvider(BuildContext context) async {
     try {
       await service.loginService(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
     } catch (e) {
-     rethrow;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.toString())));
     }
   }
+
   @override
   void dispose() {
-   emailController.dispose();
-   nameController.dispose();
-   passwordController.dispose();
+    emailController.dispose();
+    nameController.dispose();
+    passwordController.dispose();
+    rEmailController.dispose();
+    rPasswordController.dispose();
     super.dispose();
   }
 }
