@@ -1,0 +1,13 @@
+import 'package:chatso/view/loginPage.dart';
+import 'package:chatso/view/signPage.dart';
+import 'package:chatso/view/splash.dart';
+import 'package:go_router/go_router.dart';
+
+final GoRouter router = GoRouter(
+  initialLocation: '/splash',
+  routes: [
+    GoRoute(path: '/splash', builder: (context, state) => MySplash()),
+    GoRoute(path: '/login', builder: (context, state) => MyLogin()),
+    GoRoute(path: '/register', builder: (context, state) => MyRegister()),
+  ],
+);

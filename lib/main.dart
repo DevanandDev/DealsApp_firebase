@@ -1,5 +1,6 @@
 import 'package:chatso/controller/authProvider.dart';
 import 'package:chatso/firebase_options.dart';
+import 'package:chatso/router/routers.dart';
 import 'package:chatso/view/loginPage.dart';
 import 'package:chatso/view/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,9 +23,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
    debugShowCheckedModeBanner: false,
-   home: MySplash(),
     );
   }
 }

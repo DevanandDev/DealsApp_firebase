@@ -1,4 +1,5 @@
 import 'package:chatso/view/loginPage.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -13,7 +14,7 @@ class MySplash extends StatefulWidget {
 class _MySplashState extends State<MySplash> {
   Future<void> dataPass() async {
     await Future.delayed(Duration(seconds: 7));
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (ctx)=>MyLogin()));
+   context.go('/login');
   }
 
   @override
