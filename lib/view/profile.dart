@@ -8,7 +8,15 @@ class MyProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       body: text(text: 'dhshdsf')
+        body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(onPressed: (){
+              FirebaseAuth.instance.signOut();
+          }, child: text(text: 'logout')),
+          
+        ],
+      ),
     );
   }
 }

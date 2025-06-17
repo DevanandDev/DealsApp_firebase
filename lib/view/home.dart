@@ -1,5 +1,3 @@
-import 'package:chatso/widgets/authWidget.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyHome extends StatefulWidget {
@@ -12,10 +10,17 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      
-      
-     
+      appBar: PreferredSize(preferredSize: Size.fromHeight(10), child: AppBar()),
+      body: Column(
+        children: [
+          Image.asset('assets/icons8-handshake-heart-72.png',width: 30,),
+          Text('DeALs',style: TextStyle(
+            fontSize: 30,fontWeight: FontWeight.bold
+          ),)
+        ],
+      ),
     );
   }
 }

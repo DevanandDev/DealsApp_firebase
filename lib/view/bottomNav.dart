@@ -15,7 +15,6 @@ class MyBottomBar extends StatelessWidget {
   final List<Widget> pages = [
     MyHome(),
     MySearch(),
-    MySales(),
     MyCart(),
     MyProfile(),
   ];
