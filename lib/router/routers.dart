@@ -1,6 +1,8 @@
+import 'package:chatso/view/bottomNav.dart';
 import 'package:chatso/view/forget_password.dart';
 import 'package:chatso/view/home.dart';
 import 'package:chatso/view/loginPage.dart';
+import 'package:chatso/view/sales.dart';
 import 'package:chatso/view/signPage.dart';
 import 'package:chatso/view/splash.dart';
 import 'package:go_router/go_router.dart';
@@ -12,6 +14,8 @@ final GoRouter router = GoRouter(
     GoRoute(path: '/login', builder: (context, state) => MyLogin()),
     GoRoute(path: '/register', builder: (context, state) => MyRegister()),
     GoRoute(path: '/forgotPass',builder: (context, state) => ForgetPass(),),
-    GoRoute(path: '/home',builder: (context, state) => MyHome(),)
+    GoRoute(path: '/home',builder: (context, state) => MyHome(),),
+    GoRoute(path: '/bottomBar',builder: (context, state) => MyBottomBar(),),
+    GoRoute(path: '/sales',builder: (context, state) => MySales(),)
   ],
 );

@@ -70,7 +70,7 @@ class ForgetPass extends StatelessWidget {
             ),
             SizedBox(height: height * 0.05),
             Padding(
-              padding: EdgeInsets.only(left: width * 0.09, right: width * 0.02),
+              padding: EdgeInsets.only(left: width * 0.09, right: width * 0.09),
               child: textForm(
                 acontroller: forgetController,
                 prefix: Icon(Icons.key),
@@ -79,7 +79,7 @@ class ForgetPass extends StatelessWidget {
             ),
             SizedBox(height: height * 0.05),
             Padding(
-              padding: EdgeInsets.only(left: width * 0.09, right: width * 0.02),
+              padding: EdgeInsets.only(left: width * 0.09, right: width * 0.09),
               child: eButton(
                 text: 'submit',
                 presse: () {

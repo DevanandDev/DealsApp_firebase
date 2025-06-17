@@ -1,4 +1,5 @@
 import 'package:chatso/controller/authProvider.dart';
+import 'package:chatso/controller/bottomNavProvider.dart';
 import 'package:chatso/firebase_options.dart';
 import 'package:chatso/router/routers.dart';
 import 'package:chatso/view/loginPage.dart';
@@ -13,7 +14,8 @@ void main()async
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (context) => Authprovider(),)
+      ChangeNotifierProvider(create: (context) => Authprovider(),),
+      ChangeNotifierProvider(create: (context) => Bottomnavprovider(),)
     ],
     child: MyApp()));
 }

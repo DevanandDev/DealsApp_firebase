@@ -2,20 +2,13 @@ import 'package:chatso/widgets/authWidget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class MyHome extends StatefulWidget {
-  const MyHome({super.key});
+class MyProfile extends StatelessWidget {
+  const MyProfile({super.key});
 
-  @override
-  State<MyHome> createState() => _MyHomeState();
-}
-
-class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      
-     
+       body: text(text: 'dhshdsf')
     );
   }
 }

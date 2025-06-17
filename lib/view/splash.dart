@@ -1,4 +1,6 @@
 import 'package:chatso/view/loginPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +14,22 @@ class MySplash extends StatefulWidget {
 }
 
 class _MySplashState extends State<MySplash> {
-  Future<void> dataPass() async {
-    await Future.delayed(Duration(seconds: 7));
-   context.go('/login');
-  }
-
+  
   @override
   void initState() {
-    dataPass();
+   checkLog();
+  }
+
+  Future<void> checkLog()async{
+   await Future.delayed(Duration(seconds: 5));
+   final user = await FirebaseAuth.instance.currentUser;
+
+   if (user != null) {
+     context.go('/bottomBar');    
+   }
+   else{
+    context.go('/login');
+   }
   }
 
   @override

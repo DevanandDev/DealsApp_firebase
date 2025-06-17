@@ -1,4 +1,5 @@
 import 'package:chatso/controller/authProvider.dart';
+import 'package:chatso/services/authServices.dart';
 import 'package:chatso/view/signPage.dart';
 import 'package:chatso/widgets/authWidget.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class MyLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+    final _auth = AuthService();
 
     final regController = Provider.of<Authprovider>(context, listen: false);
     final size = MediaQuery.of(context).size;
@@ -112,7 +114,9 @@ class MyLogin extends StatelessWidget {
                           ),
                         ),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () async{
+                             await _auth.loginGoogle();
+                          },
                           icon: FaIcon(FontAwesomeIcons.google,size: 20,),
                         ),
                       ),
