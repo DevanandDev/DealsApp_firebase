@@ -16,7 +16,7 @@ class _MyHomeState extends State<MyHome> {
       body: Column(
         children: [
           Image.asset('assets/icons8-handshake-heart-72.png',width: 30,),
-          Text('DeALs',style: TextStyle(
+          Text('DealS',style: TextStyle(
             fontSize: 30,fontWeight: FontWeight.bold
           ),)
         ],

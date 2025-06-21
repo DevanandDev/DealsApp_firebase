@@ -1,5 +1,5 @@
-import 'package:chatso/controller/authProvider.dart';
-import 'package:chatso/services/authServices.dart';
+import 'package:chatso/controller/auth_provider.dart';
+import 'package:chatso/services/auth_services.dart';
 import 'package:chatso/view/signPage.dart';
 import 'package:chatso/widgets/authWidget.dart';
 import 'package:flutter/material.dart';

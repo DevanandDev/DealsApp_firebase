@@ -1,4 +1,4 @@
-import 'package:chatso/controller/authProvider.dart';
+import 'package:chatso/controller/auth_provider.dart';
 import 'package:chatso/view/loginPage.dart';
 import 'package:chatso/widgets/authWidget.dart';
 import 'package:flutter/material.dart';

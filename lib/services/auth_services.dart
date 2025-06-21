@@ -57,10 +57,10 @@ class AuthService {
   Future<UserCredential?> loginGoogle() async {
   try {
     final gooleUser = await GoogleSignIn().signIn();
-    final googleAuth = await gooleUser!.authentication;
+    final googleAuth = await gooleUser?.authentication;
     final cred = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
     );
     return await _auth.signInWithCredential(cred);
   } catch (e) {
