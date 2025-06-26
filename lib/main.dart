@@ -1,5 +1,6 @@
 import 'package:chatso/controller/auth_provider.dart';
-import 'package:chatso/controller/bottomNavProvider.dart';
+import 'package:chatso/controller/bottom_nav_provider.dart';
+import 'package:chatso/controller/product_add_provider.dart';
 import 'package:chatso/firebase_options.dart';
 import 'package:chatso/router/routers.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,6 +21,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => Authprovider()),
         ChangeNotifierProvider(create: (context) => Bottomnavprovider()),
+        ChangeNotifierProvider(create: (context) => Productaddprovider(),)
       ],
       child: MyApp(),
     ),

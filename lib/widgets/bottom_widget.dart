@@ -1,5 +1,5 @@
-import 'package:chatso/controller/bottomNavProvider.dart';
-import 'package:chatso/widgets/authWidget.dart';
+import 'package:chatso/controller/bottom_nav_provider.dart';
+import 'package:chatso/widgets/auth_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -18,7 +18,7 @@ class Authprovider extends ChangeNotifier {
         password: rPasswordController.text.trim(),
       );
     } catch (e) {
-      rethrow;
+      throw Exception('already taken ${e}');
     }
   }
 

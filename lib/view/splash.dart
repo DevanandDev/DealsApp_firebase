@@ -1,4 +1,4 @@
-import 'package:chatso/view/loginPage.dart';
+import 'package:chatso/view/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';

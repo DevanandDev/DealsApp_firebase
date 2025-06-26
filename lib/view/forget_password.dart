@@ -1,4 +1,4 @@
-import 'package:chatso/widgets/authWidget.dart';
+import 'package:chatso/widgets/auth_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

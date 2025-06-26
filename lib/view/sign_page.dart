@@ -1,6 +1,6 @@
 import 'package:chatso/controller/auth_provider.dart';
-import 'package:chatso/view/loginPage.dart';
-import 'package:chatso/widgets/authWidget.dart';
+import 'package:chatso/view/login_page.dart';
+import 'package:chatso/widgets/auth_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -91,6 +91,7 @@ class MyRegister extends StatelessWidget {
                     if (_formKey.currentState!.validate()) {
                       authController.registerProvider();
                     }
+                    context.go('/login');
                   },
                   text: 'Sign in',
                 ),
