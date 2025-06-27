@@ -2,14 +2,13 @@ import 'package:chatso/services/product_add_service.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class Productaddprovider extends ChangeNotifier {
-  Productaddservice service = Productaddservice();
-
+class Productaddprovider with ChangeNotifier {
+  final Productaddservice _service = Productaddservice();
   List<XFile> imageList = [];
   bool isLoding = false;
 
-  void selectImages(List<XFile> image) {
-    imageList = image;
+  void selectImages(List<XFile> images) {
+    imageList = images;
     notifyListeners();
   }
 
@@ -18,23 +17,25 @@ class Productaddprovider extends ChangeNotifier {
     required String price,
     required String description,
   }) async {
-    isLoding = true;
-    notifyListeners();
-
     try {
-      final uploadUrl = await service.uploadImages(imageList);
-      await service.saveProduct(
+      isLoding = true;
+      notifyListeners();
+
+      final uploadedImages = await _service.uploadImages(imageList);
+
+      await _service.saveProduct(
         name: name,
         price: price,
         description: description,
-        imageList: uploadUrl,
+        imageList: uploadedImages,
       );
-    } catch (e) {
-      rethrow;
-    }
-    finally{
-      isLoding =false;
+
+      isLoding = false;
       notifyListeners();
+    } catch (e) {
+      isLoding = false;
+      notifyListeners();
+      throw Exception('Provider Error: $e');
     }
   }
 }

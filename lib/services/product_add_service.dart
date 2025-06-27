@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uuid/uuid.dart';
@@ -43,6 +45,7 @@ class Productaddservice {
     required List<String> imageList,
   }) async {
     try {
+      
       final response = await supabase.from('products').insert({
         'name': name,
         'price': price,
@@ -50,6 +53,7 @@ class Productaddservice {
         'images': imageList,
         'created_at': DateTime.now().toIso8601String(),
       });
+      log('Product added service');
     } catch (e) {
       throw Exception(e);
     }

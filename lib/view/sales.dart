@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:chatso/controller/product_add_provider.dart';
 import 'package:chatso/widgets/auth_widget.dart';
 import 'package:flutter/material.dart';
@@ -18,34 +20,111 @@ class AddProductPage extends StatelessWidget {
     }
   }
 
+  void submitAllProduct(BuildContext context) async {
+    final provider = await context.read<Productaddprovider>();
+
+    final name = nameController.text.trim();
+    final price = priceController.text.trim();
+    final description = descriptionController.text.trim();
+
+    if (name.isEmpty || price.isEmpty || description.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: text(
+            text: 'please fill all fields and select at least one image',
+          ),
+        ),
+      );
+      return;
+    }
+    try {
+      await provider.addImageProvider(
+        name: name,
+        price: price,
+        description: description,
+      );
+      nameController.clear();
+      priceController.clear();
+      descriptionController.clear();
+      provider.selectImages([]);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: text(text: 'product added successfully')),
+      );
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<Productaddprovider>();
     return Scaffold(
-      appBar: AppBar(),
-
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            'Add Products',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
       body:
           provider.isLoding
-              ? CircularProgressIndicator()
-              : Column(
-                children: [
-                  TextFormField(
-                    controller: nameController,
+              ? Center(child: CircularProgressIndicator())
+              : SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(28.0),
+                  child: Column(
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          pickImages(context);
+                        },
+                        icon: Icon(Icons.image),
+                        label: text(text: 'Pick Images'),
+                      ),
+                      SizedBox(height: 10),
+                      if (provider.imageList.isNotEmpty)
+                        SizedBox(
+                          height: 100,
+                          child: ListView.builder(
+                            itemCount: provider.imageList.length,
+                            itemBuilder: (context, index) {
+                              return Image.file(
+                                File(provider.imageList[index].path),
+                                width: 100,
+                                fit: BoxFit.cover,
+                              );
+                            },
+                          ),
+                        ),
 
-                    decoration: InputDecoration(hintText: 'name'),
+                      TextFormField(
+                        controller: nameController,
+                        decoration: InputDecoration(hintText: 'name'),
+                      ),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        controller: priceController,
+                        decoration: InputDecoration(hintText: 'price'),
+                      ),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        maxLines: 4,
+                        controller: descriptionController,
+                        decoration: InputDecoration(hintText: 'description'),
+                      ),
+
+                      SizedBox(height: 20),
+                      eButton(
+                        text: 'Submit',
+                        presse: () {
+                          submitAllProduct(context);
+                        },
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: priceController,
-                    decoration: InputDecoration(hintText: 'price'),
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: descriptionController,
-                    decoration: InputDecoration(hintText: 'description'),
-                  ),
-                  eButton(text: 'Submit', presse: (){})
-                ],
+                ),
               ),
     );
   }

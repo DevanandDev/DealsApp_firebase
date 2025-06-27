@@ -7,13 +7,28 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class MyRegister extends StatelessWidget {
+class MyRegister extends StatefulWidget {
   const MyRegister({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+  State<MyRegister> createState() => _MyRegisterState();
+}
+
+class _MyRegisterState extends State<MyRegister> {
+   final _formKey = GlobalKey<FormState>();
     TextEditingController confirmPassControler = TextEditingController();
+  @override
+  void dispose() {
+    final provider = Provider.of<Authprovider>(context, listen: false);
+    provider.nameController.dispose();
+    provider.emailController.dispose();
+    provider.passwordController.dispose();
+    confirmPassControler.dispose();
+    super.dispose();
+  }
+  @override
+  Widget build(BuildContext context) {
+   
     final authController = Provider.of<Authprovider>(context, listen: false);
     final size = MediaQuery.of(context).size;
     final width = size.width;
@@ -43,11 +58,11 @@ class MyRegister extends StatelessWidget {
                   acontroller: authController.nameController,
                   prefix: Icon(Icons.person),
                   hText: 'username',
-                 validate: (value) {
-                   if (value == null || value.isEmpty) {
-                     return 'please enter username';
-                   }
-                 },
+                  validate: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'please enter username';
+                    }
+                  },
                 ),
                 SizedBox(height: height * 0.01),
                 textForm(
@@ -55,39 +70,39 @@ class MyRegister extends StatelessWidget {
                   prefix: Icon(Icons.email_outlined),
                   hText: 'email',
                   validate: (value) {
-                      if (value==null || value.isEmpty) {
-                        return 'please enter your email';
-                      }
-                      if (!value.contains('@')) {
-                        return 'email is not correct';
-                      }
-                    },
+                    if (value == null || value.isEmpty) {
+                      return 'please enter your email';
+                    }
+                    if (!value.contains('@')) {
+                      return 'email is not correct';
+                    }
+                  },
                 ),
                 SizedBox(height: height * 0.01),
                 textForm(
                   acontroller: authController.rPasswordController,
                   prefix: Icon(Icons.lock_outline_sharp),
                   hText: 'password',
-                   validate: (value) {
-                       if (value==null || value.isEmpty) {
-                        return 'please enter your password';
-                      }
-                      if (value.length < 6) {
-                        return 'enter atleast 6 characters';
-                      }
-                    },
+                  validate: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'please enter your password';
+                    }
+                    if (value.length < 6) {
+                      return 'enter atleast 6 characters';
+                    }
+                  },
                 ),
                 SizedBox(height: height * 0.01),
                 textForm(
+            
                   acontroller: confirmPassControler,
                   prefix: Icon(Icons.lock_open_sharp),
                   hText: 'confirm password',
-                 
                 ),
-            
+
                 SizedBox(height: height * 0.055),
                 eButton(
-                  presse: ()  {
+                  presse: () {
                     if (_formKey.currentState!.validate()) {
                       authController.registerProvider();
                     }
@@ -98,11 +113,15 @@ class MyRegister extends StatelessWidget {
                 SizedBox(height: height * 0.03),
                 Row(
                   children: [
-                    Expanded(child: Divider(color: Colors.black, thickness: 0.1)),
+                    Expanded(
+                      child: Divider(color: Colors.black, thickness: 0.1),
+                    ),
                     SizedBox(width: width * 0.05),
                     text(text: 'Or Register With'),
                     SizedBox(width: width * 0.05),
-                    Expanded(child: Divider(color: Colors.black, thickness: 0.1)),
+                    Expanded(
+                      child: Divider(color: Colors.black, thickness: 0.1),
+                    ),
                   ],
                 ),
                 SizedBox(height: height * 0.04),
@@ -111,7 +130,7 @@ class MyRegister extends StatelessWidget {
                   children: [
                     Container(
                       height: height * 0.05,
-                        width: width * 0.2,
+                      width: width * 0.2,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
@@ -120,13 +139,13 @@ class MyRegister extends StatelessWidget {
                       ),
                       child: IconButton(
                         onPressed: () {},
-                        icon: FaIcon(FontAwesomeIcons.google,size: 20,),
+                        icon: FaIcon(FontAwesomeIcons.google, size: 20),
                       ),
                     ),
                     SizedBox(width: width * 0.09),
                     Container(
                       height: height * 0.05,
-                        width: width * 0.2,
+                      width: width * 0.2,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
@@ -135,13 +154,13 @@ class MyRegister extends StatelessWidget {
                       ),
                       child: IconButton(
                         onPressed: () {},
-                        icon: FaIcon(FontAwesomeIcons.phone,size: 20,),
+                        icon: FaIcon(FontAwesomeIcons.phone, size: 20),
                       ),
                     ),
                     SizedBox(width: width * 0.09),
                     Container(
                       height: height * 0.05,
-                        width: width * 0.2,
+                      width: width * 0.2,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
@@ -150,7 +169,7 @@ class MyRegister extends StatelessWidget {
                       ),
                       child: IconButton(
                         onPressed: () {},
-                        icon: FaIcon(FontAwesomeIcons.user,size: 20,),
+                        icon: FaIcon(FontAwesomeIcons.user, size: 20),
                       ),
                     ),
                   ],

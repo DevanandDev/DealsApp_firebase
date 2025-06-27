@@ -8,13 +8,29 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class MyLogin extends StatelessWidget {
-  const MyLogin({super.key});
+class MyLogin extends StatefulWidget {
+   MyLogin({super.key});
 
   @override
+  State<MyLogin> createState() => _MyLoginState();
+}
+
+class _MyLoginState extends State<MyLogin> {
+   final _formKey = GlobalKey<FormState>();
+   final _auth = AuthService();
+
+
+  @override
+  void dispose() {
+    final provider = Provider.of<Authprovider>(context, listen: false);
+    provider.emailController.dispose();
+    provider.passwordController.dispose();
+    super.dispose();
+  }
+
+  
+  @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-    final _auth = AuthService();
 
     final regController = Provider.of<Authprovider>(context, listen: false);
     final size = MediaQuery.of(context).size;
