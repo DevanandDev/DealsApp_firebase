@@ -16,6 +16,6 @@ final GoRouter router = GoRouter(
     GoRoute(path: '/forgotPass',builder: (context, state) => ForgetPass(),),
     GoRoute(path: '/home',builder: (context, state) => MyHome(),),
     GoRoute(path: '/bottomBar',builder: (context, state) => MyBottomBar(),),
-    GoRoute(path: '/sales',builder: (context, state) => AddProductPage())
+    // GoRoute(path: '/sales',builder: (context, state) => AddProductPage()) 
   ],
 );

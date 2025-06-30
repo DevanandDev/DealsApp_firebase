@@ -49,15 +49,17 @@ class _MyHomeState extends State<MyHome> {
             return Center(child: Text("No products found"));
           }
 
-          return ListView.builder(
+          return GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,crossAxisSpacing: 10,mainAxisSpacing: 20 ),
             itemCount: value.productList.length,
-            itemBuilder: (context, index) {
+              itemBuilder: (context, index)
+             {
               final product = value.productList[index];
 
               final name = product['name'] ?? 'No name';
               final price = product['price'] ?? 'No price';
               final description = product['description'] ?? 'No description';
-              final List images = product['images'] ?? [];
+              final List<dynamic> images = product['images'] ?? []; 
 
               return Card(
                 margin: EdgeInsets.all(10),
@@ -72,7 +74,7 @@ class _MyHomeState extends State<MyHome> {
                           borderRadius: BorderRadius.circular(8),
                           child: Image.network(
                             images[0],
-                            height: 180,
+                            height: 180, 
                             width: double.infinity,
                             fit: BoxFit.cover,
                           ),
