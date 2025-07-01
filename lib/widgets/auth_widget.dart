@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Widget textForm({required acontroller, required prefix, required hText,String? Function(String?)?validate}) {
+Widget textForm({required acontroller, required prefix, required hText,String? Function(String?)?validate,maxlines}) {
   return TextFormField(
+    maxLines: maxlines,
     controller: acontroller,
     decoration: InputDecoration(
       enabledBorder: OutlineInputBorder(
@@ -41,9 +42,9 @@ Widget eButton({required String text, required presse}) {
 }
 
 
-Widget text({required String text,colors,fontweights}) {
+Widget text({required String text,colors,fontweights,double fontSize = 14}) {
     return Text(text, style: GoogleFonts.poppins(
-                  fontSize: 14,
+                  fontSize: fontSize,
                   color: colors,
                   fontWeight: fontweights,
                 ),);

@@ -29,7 +29,7 @@ class MyBottomBar extends StatelessWidget {
         shape: CircleBorder(),
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         onPressed: () => context.push('/sales'),
-        elevation: 14,
+        elevation:4,
         child: Icon(Icons.add, color: Colors.black),
       ),
       bottomNavigationBar: BottomAppBar(
