@@ -39,59 +39,18 @@ class _MyHomeState extends State<MyHome> {
           ],
         ),
       ),
-      body: Consumer<ProductFetchProvider>(
-        builder: (context, value, child) {
-          if (value.isLoding) {
-            return Center(child: CircularProgressIndicator());
-          }
-
-          if (value.productList.isEmpty) {
-            return Center(child: Text("No products found"));
-          }
-
-          return GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,crossAxisSpacing: 10,mainAxisSpacing: 20 ),
-            itemCount: value.productList.length,
-              itemBuilder: (context, index)
-             {
-              final product = value.productList[index];
-
-              final name = product['name'] ?? 'No name';
-              final price = product['price'] ?? 'No price';
-              final description = product['description'] ?? 'No description';
-              final List<dynamic> images = product['images'] ?? []; 
-
-              return Card(
-                margin: EdgeInsets.all(10),
-                elevation: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (images.isNotEmpty)
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            images[0],
-                            height: 180, 
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      SizedBox(height: 10),
-                      Text(name, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                      Text("₹$price", style: TextStyle(fontSize: 16, color: Colors.green)),
-                      SizedBox(height: 5),
-                      Text(description),
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
-        },
-      ),
+      body:Column(
+        children: [
+         TextField(
+          onChanged: (value) {
+            
+          },
+          decoration: InputDecoration(
+            border: OutlineInputBorder()
+          ),
+         )
+        ],
+      )
     );
   }
 }

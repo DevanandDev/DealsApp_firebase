@@ -90,7 +90,10 @@ class _MysalesState extends State<Mysales> {
                     prefix: Icon(Icons.message),
                     hText: 'Description',
                     maxlines: 3  
-                  ),
+                  ),SizedBox(height: 20,),
+                  eButton(text: 'Upload', presse: (){
+
+                  })
             ],
           ),
         ),

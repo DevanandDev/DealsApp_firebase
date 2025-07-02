@@ -16,7 +16,7 @@ class Authprovider extends ChangeNotifier {
         name: nameController.text.trim(),
         email: rEmailController.text.trim(),
         password: rPasswordController.text.trim(),
-      );
+      ); 
     } catch (e) {
       throw Exception('already taken ${e}');
     }

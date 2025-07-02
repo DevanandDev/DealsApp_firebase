@@ -13,7 +13,7 @@ class AddUsersProvider extends ChangeNotifier {
   Future<void> userAdd(ProductModel products) async {
     isLoading = true;
     error = null;
-    notifyListeners();
+    notifyListeners();  
     try {
       await service.addToSupa(products);
       log('Product added provider success');

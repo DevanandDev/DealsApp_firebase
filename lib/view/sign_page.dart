@@ -15,8 +15,8 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
-   final _formKey = GlobalKey<FormState>();
-    TextEditingController confirmPassControler = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController confirmPassControler = TextEditingController();
   @override
   void dispose() {
     final provider = Provider.of<Authprovider>(context, listen: false);
@@ -26,9 +26,9 @@ class _MyRegisterState extends State<MyRegister> {
     confirmPassControler.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-   
     final authController = Provider.of<Authprovider>(context, listen: false);
     final size = MediaQuery.of(context).size;
     final width = size.width;
@@ -69,7 +69,7 @@ class _MyRegisterState extends State<MyRegister> {
                   acontroller: authController.rEmailController,
                   prefix: Icon(Icons.email_outlined),
                   hText: 'email',
-                  validate: (value) {
+                  validate: (value) { 
                     if (value == null || value.isEmpty) {
                       return 'please enter your email';
                     }
@@ -94,7 +94,6 @@ class _MyRegisterState extends State<MyRegister> {
                 ),
                 SizedBox(height: height * 0.01),
                 textForm(
-            
                   acontroller: confirmPassControler,
                   prefix: Icon(Icons.lock_open_sharp),
                   hText: 'confirm password',
