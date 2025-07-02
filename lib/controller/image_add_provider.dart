@@ -27,16 +27,18 @@ class ImageAddProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> uploadImages() async {
+  Future<List<String>> uploadImages() async {
     isLoading = true;
     notifyListeners();
 
     try {
       uploadImageUrl = await service.uploadImage(selectedImages);
-      log('uploaded image : $uploadImageUrl');
+      return uploadImageUrl;
+
     } catch (e) {
       log('Image not uploaded : $e');
-      error = 'Image uploadfailed';
+      error = 'Image upload failed';
+      return [];
     } finally {
       isLoading = false;
       notifyListeners();

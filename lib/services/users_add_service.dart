@@ -12,6 +12,7 @@ class UsersAddService {
       log('error in adding service');
     } on Supabase catch (e) {
       log('user not added : $e');
+      
     }
   }
 }

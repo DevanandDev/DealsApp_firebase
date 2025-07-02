@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:chatso/controller/add_users_provider.dart';
 import 'package:chatso/controller/image_add_provider.dart';
+import 'package:chatso/models/product_model.dart';
 import 'package:chatso/widgets/auth_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +47,7 @@ class _MysalesState extends State<Mysales> {
                         borderRadius: BorderRadius.circular(5),
                         color: const Color.fromARGB(255, 230, 230, 230),
                       ),
-          
+
                       child:
                           value.selectedImages.isEmpty
                               ? Column(
@@ -61,13 +63,16 @@ class _MysalesState extends State<Mysales> {
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 3,
                                       crossAxisSpacing: 3,
-                                      mainAxisSpacing: 3
+                                      mainAxisSpacing: 3,
                                     ),
                                 itemBuilder: (context, index) {
-                                 return ClipRRect(
-                                     child: Image.file(File(value.selectedImages[index].path),fit: BoxFit.cover,),
-                                     borderRadius: BorderRadius.circular(5),
-                                 );
+                                  return ClipRRect(
+                                    child: Image.file(
+                                      File(value.selectedImages[index].path),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5),
+                                  );
                                 },
                               ),
                     ),
@@ -76,24 +81,60 @@ class _MysalesState extends State<Mysales> {
               ),
               SizedBox(height: 50),
               textForm(
-                    acontroller: nameController,
-                    prefix: Icon(Icons.person),
-                    hText: 'Name',
-                  ),SizedBox(height: 10),
-                  textForm(
-                    acontroller: priceController,
-                    prefix: Icon(Icons.currency_rupee),
-                    hText: 'Price',
-                  ),SizedBox(height: 10),
-                  textForm(
-                    acontroller: descrptionController,
-                    prefix: Icon(Icons.message),
-                    hText: 'Description',
-                    maxlines: 3  
-                  ),SizedBox(height: 20,),
-                  eButton(text: 'Upload', presse: (){
+                acontroller: nameController,
+                prefix: Icon(Icons.person),
+                hText: 'Name',
+              ),
+              SizedBox(height: 10),
+              textForm(
+                acontroller: priceController,
+                prefix: Icon(Icons.currency_rupee),
+                hText: 'Price',
+              ),
+              SizedBox(height: 10),
+              TextField(
+                maxLines: 4,
+                controller: descrptionController,
+                decoration: InputDecoration(
+                  hintText: 'Description',
+                  alignLabelWithHint: true,
+                  isCollapsed: false,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.only(bottom: 70),
+                    child: Icon(Icons.message),
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 30),
+              Consumer2<ImageAddProvider, AddUsersProvider>(
+                builder: (context, imageData, userData, child) {
+                  return eButton(
+                    text: 'Upload',
+                    presse: () async {
+                      final imageUrl = await imageData.uploadImages();
+                      final product = ProductModel(
+                        name: nameController.text.trim(),
+                        price: double.parse(priceController.text.trim()),
+                        description: descrptionController.text.trim(),
+                        image: imageUrl,
+                      );
+                      await userData.userAdd(product);
 
-                  })
+                      nameController.clear();
+                      descrptionController.clear();
+                      priceController.clear();
+                      imageData.clearAll();
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: text(text: 'Product added successfully'),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
             ],
           ),
         ),

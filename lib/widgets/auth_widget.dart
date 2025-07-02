@@ -14,6 +14,7 @@ Widget textForm({required acontroller, required prefix, required hText,String? F
         borderSide: BorderSide(color: const Color.fromARGB(179, 1, 0, 0)),
       ),
       hintText: hText,
+      alignLabelWithHint: true,
       hintStyle: GoogleFonts.poppins(),
       prefixIcon: prefix,
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),

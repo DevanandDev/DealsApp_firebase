@@ -1,13 +1,13 @@
 class ProductModel {
-  int? id;
-  String? name;
-  double? price;
-  String? description;
-  String? image;
-  DateTime? createdAt;
+  final int? id;
+  final String? name;
+  final double? price;
+  final String? description;
+  final List<String> image;
+  final DateTime? createdAt;
 
   ProductModel({
-    required this.id,
+     this.id,
     required this.name,
     required this.price,
     required this.description,
@@ -17,12 +17,12 @@ class ProductModel {
 
   Map<String,dynamic> toSupa(){
     return {
-      'id':id,
+    if(id != null)  'id':id,
       'name':name,
       'price':price,
       'description':description,
       'images':image,
-      'created_at':createdAt
+      'created_at':(createdAt ?? DateTime.now().toIso8601String())
     };
   }
 }

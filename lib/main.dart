@@ -1,3 +1,4 @@
+import 'package:chatso/controller/add_users_provider.dart';
 import 'package:chatso/controller/auth_provider.dart';
 import 'package:chatso/controller/bottom_nav_provider.dart';
 import 'package:chatso/controller/image_add_provider.dart';
@@ -23,7 +24,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => Authprovider()),
         ChangeNotifierProvider(create: (context) => Bottomnavprovider()),
         ChangeNotifierProvider(create: (context) => ImageAddProvider()),
-        ChangeNotifierProvider(create: (context) => ProductFetchProvider()),
+        ChangeNotifierProvider(create: (context) => AddUsersProvider()),
       ],
       child: MyApp(),
     ),
