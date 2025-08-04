@@ -1,4 +1,4 @@
-import 'package:chatso/services/product_fetch_service.dart';
+import 'package:chatso/data/service/product_fetch_service.dart';
 import 'package:flutter/material.dart';
 
 class ProductFetchProvider extends ChangeNotifier{

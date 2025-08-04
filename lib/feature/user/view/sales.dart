@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:chatso/controller/add_users_provider.dart';
-import 'package:chatso/controller/image_add_provider.dart';
-import 'package:chatso/models/product_model.dart';
-import 'package:chatso/widgets/auth_widget.dart';
+import 'package:chatso/feature/user/viewmodel/add_users_provider.dart';
+import 'package:chatso/feature/user/viewmodel/image_add_provider.dart';
+import 'package:chatso/data/models/product_model.dart';
+import 'package:chatso/core/widgets/auth_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

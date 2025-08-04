@@ -1,10 +1,10 @@
-import 'package:chatso/view/bottom_nav.dart';
-import 'package:chatso/view/forget_password.dart';
-import 'package:chatso/view/home.dart';
-import 'package:chatso/view/login_page.dart';
-import 'package:chatso/view/sales.dart';
-import 'package:chatso/view/sign_page.dart';
-import 'package:chatso/view/splash.dart';
+import 'package:chatso/feature/user/view/bottom_nav.dart';
+import 'package:chatso/feature/auth/view/forget_password.dart';
+import 'package:chatso/feature/user/view/home.dart';
+import 'package:chatso/feature/auth/view/login_page.dart';
+import 'package:chatso/feature/user/view/sales.dart';
+import 'package:chatso/feature/auth/view/sign_page.dart';
+import 'package:chatso/feature/auth/view/splash.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(

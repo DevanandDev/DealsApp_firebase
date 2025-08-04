@@ -1,4 +1,4 @@
-import 'package:chatso/services/auth_services.dart';
+import 'package:chatso/data/service/auth_services.dart';
 import 'package:flutter/material.dart';
 
 class Authprovider extends ChangeNotifier {

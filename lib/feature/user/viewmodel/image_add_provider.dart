@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:chatso/services/image_add_service.dart';
+import 'package:chatso/data/service/image_add_service.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 

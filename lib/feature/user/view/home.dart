@@ -1,5 +1,5 @@
-import 'package:chatso/controller/product_fetch_provider.dart';
-import 'package:chatso/widgets/auth_widget.dart';
+import 'package:chatso/feature/user/viewmodel/product_fetch_provider.dart';
+import 'package:chatso/core/widgets/auth_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

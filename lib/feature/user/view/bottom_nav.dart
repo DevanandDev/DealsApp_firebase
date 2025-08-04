@@ -1,10 +1,10 @@
-import 'package:chatso/controller/bottom_nav_provider.dart';
-import 'package:chatso/view/cart.dart';
-import 'package:chatso/view/home.dart';
-import 'package:chatso/view/profile.dart';
-import 'package:chatso/view/search.dart';
-import 'package:chatso/view/sales.dart';
-import 'package:chatso/widgets/bottom_widget.dart';
+import 'package:chatso/feature/user/viewmodel/bottom_nav_provider.dart';
+import 'package:chatso/feature/user/view/cart.dart';
+import 'package:chatso/feature/user/view/home.dart';
+import 'package:chatso/feature/user/view/profile.dart';
+import 'package:chatso/feature/user/view/search.dart';
+import 'package:chatso/feature/user/view/sales.dart';
+import 'package:chatso/core/widgets/bottom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';

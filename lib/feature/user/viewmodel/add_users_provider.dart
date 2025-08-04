@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:chatso/models/product_model.dart';
-import 'package:chatso/services/users_add_service.dart';
+import 'package:chatso/data/models/product_model.dart';
+import 'package:chatso/data/service/users_add_service.dart';
 import 'package:flutter/material.dart';
 
 class AddUsersProvider extends ChangeNotifier {

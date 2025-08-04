@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:chatso/models/product_model.dart';
+import 'package:chatso/data/models/product_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class UsersAddService {
