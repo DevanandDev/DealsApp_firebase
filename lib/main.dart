@@ -2,7 +2,6 @@ import 'package:chatso/feature/user/viewmodel/add_users_provider.dart';
 import 'package:chatso/feature/auth/viewmodel/auth_provider.dart';
 import 'package:chatso/feature/user/viewmodel/bottom_nav_provider.dart';
 import 'package:chatso/feature/user/viewmodel/image_add_provider.dart';
-import 'package:chatso/feature/user/viewmodel/product_fetch_provider.dart';
 import 'package:chatso/firebase_options.dart';
 import 'package:chatso/core/routes/routers.dart';
 import 'package:firebase_core/firebase_core.dart';
